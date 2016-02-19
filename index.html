@@ -27,16 +27,17 @@ function initMap() {
 		    addMarker(event.latLng, map);
 		  });
 
-//gives the initial marker on the page
+//gives the initial marker on the page without a label
 	var marker = new google.maps.Marker({
 	 	position: myLatLng,
-	 	map: map
+	 	map: map,
+		label: labels[labelIndex++ % labels.length],
  		});
 
 };
 
 
-// Adds a marker to the map.
+// Adds a marker and label to the map.
 function addMarker(location, map) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
