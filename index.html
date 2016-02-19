@@ -15,7 +15,9 @@ var labelIndex = 0;
 var myLatLng = {lat: 45.4754, lng: -122.562};
 var GlenwoodCityPark = {lat: 45.4734534, lng: -122.5738281};
 var BeggarsTickWildlifeRefuge = {lat: 45.4796604, lng: -122.5529037};
-var LentsPark = {lat: 45.4873417, lng: -122.5689815};
+var LentsCityPark = {lat: 45.4873417, lng: -122.5689815};
+var PlayHavenPark = {lat: 45.4687842, lng: -122.5525593};
+var BloomingtonPark = {lat: 45.4853262,lng: -122.5598596};
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -49,11 +51,22 @@ function initMap() {
 		});
 
 	var marker = new google.maps.Marker({
-		position: LentsPark,
+		position: LentsCityPark,
 		map: map,
 		label: labels[labelIndex++ % labels.length],
 		});
 
+	var marker = new google.maps.Marker({
+		position: PlayHavenPark,
+		map: map,
+		label: labels[labelIndex++ % labels.length],
+		});
+
+	var marker = new google.maps.Marker({
+		position: BloomingtonPark,
+		map: map,
+		label: labels[labelIndex++ % labels.length],
+		});
 };
 
 
