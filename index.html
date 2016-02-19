@@ -10,12 +10,18 @@
     <div id="map"></div>
     <script type="text/javascript">
 
-var map;
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 45.4754, lng: -122.5621},
+var myLatLng = {lat: 45.4754, lng: -122.562};
+
+var map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatLng,
     zoom: 14
   });
+
+var marker = new google.maps.Marker({
+	 position: myLatLng,
+	 map: map
+ });
 }
 
     </script>
