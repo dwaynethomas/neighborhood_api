@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="map"></div>
+    <div id="pane"></div>
     <script type="text/javascript">
 
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -37,6 +38,7 @@ function initMap() {
 	 	position: myLatLng,
 	 	map: map,
 		label: labels[labelIndex++ % labels.length],
+    animation:google.maps.Animation.DROP
  		});
 
 	var marker = new google.maps.Marker({
