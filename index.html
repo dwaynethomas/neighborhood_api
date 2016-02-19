@@ -13,7 +13,9 @@
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
 var myLatLng = {lat: 45.4754, lng: -122.562};
-
+var GlenwoodCityPark = {lat: 45.4734534, lng: -122.5738281};
+var BeggarsTickWildlifeRefuge = {lat: 45.4796604, lng: -122.5529037};
+var LentsPark = {lat: 45.4873417, lng: -122.5689815};
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -33,6 +35,24 @@ function initMap() {
 	 	map: map,
 		label: labels[labelIndex++ % labels.length],
  		});
+
+	var marker = new google.maps.Marker({
+		position: GlenwoodCityPark,
+		map: map,
+		label: labels[labelIndex++ % labels.length],
+		});
+
+	var marker = new google.maps.Marker({
+		position: BeggarsTickWildlifeRefuge,
+		map: map,
+		label: labels[labelIndex++ % labels.length],
+		});
+
+	var marker = new google.maps.Marker({
+		position: LentsPark,
+		map: map,
+		label: labels[labelIndex++ % labels.length],
+		});
 
 };
 
