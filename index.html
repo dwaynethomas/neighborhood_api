@@ -11,41 +11,58 @@
           right: 5px;
           top: 60%;
           margin-top: -195px;
-          height: 330px;
-          width: 200px;
+          height: 250px;
+          width: 300px;
           padding: 5px;
           z-index: 5;
           border: 1px solid #999;
-          background: #fff;
+          background: #B378D3;
         }
-        h2 {
+      h2 {
           font-size: 22px;
           margin: 0 0 5px 0;
         }
+      li {
+          background-color: #f1f1f1;
+          padding: 10px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      li:nth-child(odd) {
+        background-color: #fcfcfc;
+      }
     </style>
   </head>
   <body>
     <div id="map"></div>
     <div id="right-panel">
       <h2>Dwayne's Favorites</h2>
-      <ul id="places"></ul>
+      <ul id="places">
+        <li>Lents City Park</li>
+        <li>Best Baguette</li>
+        <li>Glenwood City Park</li>
+        <li>PlayHaven Park</li>
+        <li>Bloomington Park</li>
+      </ul>
     </div>
     <script type="text/javascript">
 
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
-var myLatLng = {lat: 45.4754, lng: -122.562};
-var GlenwoodCityPark = {lat: 45.4734534, lng: -122.5738281};
-var BeggarsTickWildlifeRefuge = {lat: 45.4796604, lng: -122.5529037};
 var LentsCityPark = {lat: 45.4873417, lng: -122.5689815};
+var GlenwoodCityPark = {lat: 45.4734534, lng: -122.5738281};
+var BestBaguette = {lat: 45.4972014, lng: -122.5793287};
 var PlayHavenPark = {lat: 45.4687842, lng: -122.5525593};
 var BloomingtonPark = {lat: 45.4853262,lng: -122.5598596};
-var positions = [GlenwoodCityPark, BeggarsTickWildlifeRefuge, LentsCityPark, PlayHavenPark, BloomingtonPark]
+var positions = [LentsCityPark, BestBaguette, GlenwoodCityPark, PlayHavenPark, BloomingtonPark]
+
+var myLatLng = {lat: 45.4853217, lng: -122.5683427};
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
     center: myLatLng,
-    zoom: 15
+    zoom: 14
   	});
 
 		// This event listener calls addMarker() when the map is clicked.
@@ -53,13 +70,6 @@ function initMap() {
 		    addMarker(event.latLng, map);
 		  });
 
-//gives the initial marker on the page without a label
-	var marker = new google.maps.Marker({
-	 	position: myLatLng,
-	 	map: map,
-		label: labels[labelIndex++ % labels.length],
-    animation:google.maps.Animation.DROP
- 		});
 
 // //makes positions into an array, only thing changing is the position for each loop iteration
 
@@ -68,6 +78,7 @@ for (i = 0; i < positions.length; i++) {
 		map: map,
 	  label: labels[labelIndex++ % labels.length],
     position: positions[i],
+    animation:google.maps.Animation.DROP
 		});
 
 }
