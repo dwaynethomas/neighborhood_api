@@ -40,6 +40,7 @@ var BeggarsTickWildlifeRefuge = {lat: 45.4796604, lng: -122.5529037};
 var LentsCityPark = {lat: 45.4873417, lng: -122.5689815};
 var PlayHavenPark = {lat: 45.4687842, lng: -122.5525593};
 var BloomingtonPark = {lat: 45.4853262,lng: -122.5598596};
+var positions = [GlenwoodCityPark, BeggarsTickWildlifeRefuge, LentsCityPark, PlayHavenPark, BloomingtonPark]
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -61,45 +62,51 @@ function initMap() {
     animation:google.maps.Animation.DROP
  		});
 
+// for (i = 0; i < positions.length; i++) {
+// //make these into an array, only thing changing is the position
 	var marker = new google.maps.Marker({
-		position: GlenwoodCityPark,
 		map: map,
-		label: labels[labelIndex++ % labels.length],
+	  label: labels[labelIndex++ % labels.length],
+    position: positions[0]
 		});
 
-	var marker = new google.maps.Marker({
-		position: BeggarsTickWildlifeRefuge,
-		map: map,
-		label: labels[labelIndex++ % labels.length],
-		});
-
-	var marker = new google.maps.Marker({
-		position: LentsCityPark,
-		map: map,
-		label: labels[labelIndex++ % labels.length],
-		});
-
-	var marker = new google.maps.Marker({
-		position: PlayHavenPark,
-		map: map,
-		label: labels[labelIndex++ % labels.length],
-		});
-
-	var marker = new google.maps.Marker({
-		position: BloomingtonPark,
-		map: map,
-		label: labels[labelIndex++ % labels.length],
-		});
-};
-
-
-// Adds a marker and label to the map.
-function addMarker(location, map) {
-  // Add the marker at the clicked location, and add the next-available label
-  // from the array of alphabetical characters.
-  var marker = new google.maps.Marker({
-    label: labels[labelIndex++ % labels.length],
-  });
+//}
+// 	var marker = new google.maps.Marker({
+// 		position: BeggarsTickWildlifeRefuge,
+// 		map: map,
+// 		label: labels[labelIndex++ % labels.length],
+// 		});
+//
+// 	var marker = new google.maps.Marker({
+// 		position: LentsCityPark,
+// 		map: map,
+// 		label: labels[labelIndex++ % labels.length],
+// 		});
+//
+// 	var marker = new google.maps.Marker({
+// 		position: PlayHavenPark,
+// 		map: map,
+// 		label: labels[labelIndex++ % labels.length],
+// 		});
+//
+// 	var marker = new google.maps.Marker({
+// 		position: BloomingtonPark,
+// 		map: map,
+// 		label: labels[labelIndex++ % labels.length],
+// 		});
+// };
+//
+//
+// // Adds a marker and label to the map.
+  function addMarker(location, map) {
+  //   // Add the marker at the clicked location, and add the next-available label
+  //   // from the array of alphabetical characters.
+    var marker = new google.maps.Marker({
+      position: location,
+      label: labels[labelIndex++ % labels.length],
+      map: map
+    });
+  }
 }
 
 
