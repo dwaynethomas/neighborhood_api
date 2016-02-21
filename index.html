@@ -27,7 +27,7 @@
   <body>
     <div id="map"></div>
     <div id="right-panel">
-      <h2>Results</h2>
+      <h2>Dwayne's Favorites</h2>
       <ul id="places"></ul>
     </div>
     <script type="text/javascript">
@@ -98,9 +98,7 @@ function addMarker(location, map) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
   var marker = new google.maps.Marker({
-    position: location,
     label: labels[labelIndex++ % labels.length],
-    map: map
   });
 }
 
